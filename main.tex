@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} %For non-ASCII characters
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{listings}
+\usepackage{graphicx}
+%Bibliography
+%\usepackage{biblatex}
+\usepackage[backend=biber,style=numeric,sorting=ynt]{biblatex}
+\addbibresource{bibliography.bib}
+
+\setlength{\parindent}{0pt} %no indentation
+
+\begin{document}
+\begin{minipage}{\textwidth}
+  \Large
+  \centering
+  {\large 34322 Communication Network for Control and Data Acquisition\\}
+  Mini-project\\
+  Using LoRa for telemetry in projects with moving sensors\\
+  Anders Vedel Eriksen s194017\\
+  Date: \today
+  \vspace{1cm}
+\end{minipage}
+
+\input{Introduction.tex}
+\input{Technology.tex}
+\newpage
+\printbibliography
+
+\end{document}

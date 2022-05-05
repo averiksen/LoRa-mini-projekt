@@ -1,0 +1,106 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{FastCompany}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4fb487a12362a87e185bb4354db920be}{%
+           family={Works},
+           familyi={W\bibinitperiod},
+           given={Fastco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{4fb487a12362a87e185bb4354db920be}
+      \strng{fullhash}{4fb487a12362a87e185bb4354db920be}
+      \strng{bibnamehash}{4fb487a12362a87e185bb4354db920be}
+      \strng{authorbibnamehash}{4fb487a12362a87e185bb4354db920be}
+      \strng{authornamehash}{4fb487a12362a87e185bb4354db920be}
+      \strng{authorfullhash}{4fb487a12362a87e185bb4354db920be}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Connected at 200 mph: How 5G is transforming auto racing and beyond}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.fastcompany.com/90379283/connected-at-200-mph-how-5g-is-transforming-auto-racing-and-beyond
+      \endverb
+      \verb{url}
+      \verb https://www.fastcompany.com/90379283/connected-at-200-mph-how-5g-is-transforming-auto-racing-and-beyond
+      \endverb
+    \endentry
+    \entry{DCFrontier}{online}{}
+      \name{author}{1}{}{%
+        {{hash=a0021288e1cfe64c5f2600e6b75d4fc3}{%
+           family={miller},
+           familyi={m\bibinitperiod},
+           given={Rich},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \strng{fullhash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \strng{bibnamehash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \strng{authorbibnamehash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \strng{authornamehash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \strng{authorfullhash}{a0021288e1cfe64c5f2600e6b75d4fc3}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How Cloud Data-Crunching Power Accelerates the F1 Racing Experience}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://datacenterfrontier.com/how-cloud-data-crunching-power-accelerates-the-f1-racing-experience/
+      \endverb
+      \verb{url}
+      \verb https://datacenterfrontier.com/how-cloud-data-crunching-power-accelerates-the-f1-racing-experience/
+      \endverb
+    \endentry
+    \entry{MobilePDF}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e873c46e6f78f65e29bceced4da48779}{%
+           family={Staalhagen},
+           familyi={S\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{e873c46e6f78f65e29bceced4da48779}
+      \strng{fullhash}{e873c46e6f78f65e29bceced4da48779}
+      \strng{bibnamehash}{e873c46e6f78f65e29bceced4da48779}
+      \strng{authorbibnamehash}{e873c46e6f78f65e29bceced4da48779}
+      \strng{authornamehash}{e873c46e6f78f65e29bceced4da48779}
+      \strng{authorfullhash}{e873c46e6f78f65e29bceced4da48779}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mobile Networks for Data Communication}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://learn.inside.dtu.dk/d2l/le/content/102624/viewContent/392011/View
+      \endverb
+      \verb{url}
+      \verb https://learn.inside.dtu.dk/d2l/le/content/102624/viewContent/392011/View
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
