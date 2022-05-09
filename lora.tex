@@ -1,0 +1,10 @@
+\section{Lora on RN2483A}
+
+When setting up a LoRa P2P connection, some parameters must be tuned and matched between nodes. The highest possible datarate should be spreading factor 7 with a bandwidth of 250KHz\cite{regparam}. Is a transmitter transmitting with a 125KHz bandwidth, a receiver should receive in a matching 125KHz bandwidth. For maximum signal range, the power of the transmitter should be maximized. The RN2483A is designed to transceive at a power up to 14 dBm. LoRa has some amount of forward error correction built in which can be configured. In an area with high interference, one might choose a high ratio of error correction, while in an area with low interference, a low ratio might be better suited. A high coding rate ratio will make the transmission more reliable, but at the cost of transfer rate\cite{understandingparams}.
+\begin{lstlisting}
+  loraSerial.println("radio set freq 869100000");   #centerfrequency
+  loraSerial.println("radio set sf sf7");           #spread factor
+  loraSerial.println("radio set bw 125");           #radio bandwidth
+  loraSerial.println("radio set rxbw 125");         #receiver bandwidth
+  loraSerial.println("radio set pwr 14")            #power
+\end{lstlisting}

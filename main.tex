@@ -4,10 +4,14 @@
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{listings} %For code blocks
+\usepackage{hyperref} %For URL links
+\usepackage{xcolor} %for coloring text
 %Bibliography
 %\usepackage{biblatex}
 \usepackage[backend=biber,style=numeric,sorting=ynt]{biblatex}
 \addbibresource{bibliography.bib}
+
 
 \setlength{\parindent}{0pt} %no indentation
 
@@ -17,7 +21,7 @@
   \centering
   {\large 34322 Communication Network for Control and Data Acquisition\\}
   Mini-project\\
-  Using LoRa for telemetry in projects with moving sensors\\
+  LoRa in racing cars\\
   Anders Vedel Eriksen s194017\\
   Date: \today
   \vspace{1cm}
@@ -25,7 +29,13 @@
 
 \input{Introduction.tex}
 \input{Technology.tex}
+\input{lora.tex}
+\input{experiment.tex}
 \newpage
+
+\section*{Source code}
+See files on {\color{red}\href{https://github.com/averiksen/LoRa-mini-projekt}{GitHub}}.
+
 \printbibliography
 
 \end{document}

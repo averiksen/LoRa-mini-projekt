@@ -1,0 +1,58 @@
+\section{Experiment and Results}
+A experiment was set up, to see LoRa working. The setup was a NodeMCU microcontroller connected to a Microchip\textregistered  RN2483A LoRa module, working as a transmitter. A similar setup with the same microcontroller and RN2483A LoRa board was set up as receiver, and through a USB cable connected to a PC via UART, communication with serial. The PC is running a python script to read and interpret the incoming data and plotting it on a graph.\\
+
+The transmitter has a preloaded array of twenty values, which when plottet on a time axis shows a sinusoidal wave. Also, a value containing time information is also transmitted. All in all, a 4 byte value is to be transmitted, where the least significant byte is the sinewave value, and the remaining are for the time value. To send a message with the RN2483A board, a command containing a specific string and the data, also transmitted as string type, is send from the microcontroller to the LoRa module via a serial connection. For this program, a virtual serial connection is used between microcontroller and LoRa module, as we want to save the physical UART serial communication in the microcontroller for communication between the receiver microcontroller and the PC. The command for transmitting via serial is:
+
+\begin{lstlisting}
+loraserial.println("radio rx " + String(message(), HEX));
+\end{lstlisting}
+
+``radio rx'' signals that we want to transmit. In my code, the function message() generates the 4 byte value to transmit, which is converted to a string and formatted in HEX. HEX requires the least amount of characters to transmit, why it is used here. As a visual cue, a LED lights up when a transmission is underway.\\
+
+The receiver is continuously listening for messages. When it has received a message, a led lights up. When a message is picked up on the virtual serial connection between LoRa module and microcontroller, it is forwarded to the PC via the built in UART interface.\\
+
+A Python script is handling the data coming in via the serial connection. When printing the incoming value in the Python terminal, it could look something like this:
+\begin{lstlisting}
+  data = b'radio rx  0812467F\r\r\n'
+\end{lstlisting}
+The data is coming in as a byte array of size 21. The actual content of the message is the eight bytes formatted in HEX, `0812467F', where the last two digits represent the least significant byte from the original data, the sinusoidal value. This shows an inefficiency in transmitting; The original 4 byte integer data is formatted in HEX (8 digits), which is transferred as character bytes, taking up 8 bytes (one for each digit/character), double the amount of bits than originally required. While the data is formatted in HEX, it is in fact a byte, meaning that it will have the decimal value of the corresponding character in the ASCII table, being something completely different to the actual value. This is fixed with a few lines of python code:
+\begin{lstlisting}
+  data = data[10:18]        #data is a byte array of 8 bytes
+  data_hex = int(data, 16)  #casts an int, formats in base 16 (HEX)
+\end{lstlisting}
+The value can now be used, for example plottet to continuously monitor the value. This is what has been done in the following test. On two different days, experiments was carried out. Different spread factors was used, and finally the delay between transmissions was decreased. On day one, with spread factor 7 and 2000ms delay, some transmissions were lost, figure \ref{fig:sf7-2000ms}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[height = 4cm]{sf7.png}
+  \caption{Day 1, sf7, delay 2000 ms}
+  \label{fig:sf7-2000ms}
+\end{figure}
+
+On the second day, in another building, the same experient was carried out, with no dropped transmissions, figure \ref{fig:sf7-2}.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[height = 4cm]{sf7-2.png}
+  \caption{Day 2, sf7, delay 2000ms}
+  \label{fig:sf7-2}
+\end{figure}
+
+To test the datarate, the delay was decreased to 100ms. Furthermore, all unnecesary serial operations was left out to increase microcontroller speed. This resulted in still very few dropped transmissions, see figure \ref{fig:sf7-100ms}. The transmission time was in the microcontroller measured to 20ms.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[height = 4cm]{sf7-100ms.png}
+  \caption{Day 2, sf7, delay 100 ms}
+  \label{fig:sf7-100ms}
+\end{figure}
+\newpage
+On day one, a wider spread factor of 9 was also tested, which worked fine at 2000ms delay, but failed completely at 1000ms delay, figure \ref{fig:sf9}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[height = 4cm]{sf91000ms.png}
+  \caption{sf9, delay of 1 second}
+  \label{fig:sf9}
+\end{figure}
+\newpage
+\subsection*{Conclusion}
+There was an obvious difference between the two locations from day one and day two, even though they were both inside buildings, with the same setups and configurations, and in a few instances it seemed the connection was very unreliable. Visual cues showed that transmission seemed two work, but receiving had problems. Maybe the issue was in the microcontroller or the connection between microcontroller and PC, leading to the microcontroller not able to keep up. This could be investigated further. The transmission time could be optimized to 20ms through removing unnecessary serial communication in the transmitter. With the beforementioned duty cycle requirements, this would mean that a transmission could take place every 2000ms, which is slower than what one could wish for in a race situation. Transmission integrity was however very good, with only very few lost transmissions. To really determine if the technology can be used for race cars, the distance between the nodes should be extended to expected real life distance on a race track of approximately 600m, which the transmitter moving at speed. A spread factor of 7 might prove too low here. Experimenting with a 500KHz channel could improve data rate.
